@@ -7,17 +7,10 @@
 # https://raw.githubusercontent.com/CyanogenMod/android_vendor_cyanogen/a013434bb46bb06bf0b7c83817cbcfaf040c5874/prebuilt/common/bin/fix_permissions
 # and http://forum.xda-developers.com/showthread.php?t=1441378
 
-APPS=( \
-com.android.inputmethod.latin \
-com.android.nfc \
-com.android.settings \
-com.xabber.androiddev \
-org.ethack.orwall \
-org.torproject.android \
-)
+APPS="com.android.inputmethod.latin com.android.nfc com.android.settings com.xabber.androiddev org.ethack.orwall org.torproject.android"
 
 SIP_APP=com.csipsimple
-BROWSER_APP=org.mozilla.fennec_fdroid
+BROWSER_APP=com.android.browser
 ORWALL_APP=org.ethack.orwall
 
 MISC_DIR="/sdcard/misc"
@@ -127,7 +120,7 @@ am startservice org.torproject.android/org.torproject.android.service.TorService
 am broadcast -a android.intent.action.BOOT_COMPLETED -n org.ethack.orwall/.BootBroadcast
 
 fb_logger "Remove setup directory: ${MISC_DIR}"
-rm -rf $MISC_DIR
+#rm -rf $MISC_DIR
 
 
 # We want this FirstBoot script to run only once.
