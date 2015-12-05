@@ -43,10 +43,10 @@ if [ -e $FB_SCRIPT ]; then
       $SLEEP $TIMEOUT
 
       # Run the firstboot script.
-      logwrapper /system/bin/sh ${FB_SCRIPT}
+      /system/bin/sh ${FB_SCRIPT}
 
       fb_logger "Removing firstboot script: ${FB_SCRIPT}"
-      $RM ${FB_SCRIPT}
+      #$RM ${FB_SCRIPT}
 
       # Exit the loop.
       break
