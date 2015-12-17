@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/system/xbin/bash
 # One time script to fix installed APP permissions and prepare the OS.
 # TODO: Encrypt the user data on FirstBoot; @see GH-104
 # TODO: Find a way to set the time zone.
