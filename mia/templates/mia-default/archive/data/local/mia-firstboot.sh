@@ -14,14 +14,14 @@ BROWSER_APP=com.android.browser
 ORWALL_APP=org.ethack.orwall
 
 MISC_DIR="/sdcard/misc"
-FB_LOG="/sdcard/mia-firstboot.log"
+FB_LOG="/data/local/tmp/mia-firstboot2.log"
 
 # Load helper functions.
 source $MISC_DIR/library.sh
 
 # TODO: Use system log instead of a simple file?!?
 fb_logger() {
-  echo $(date +%s): $1 >> $FB_LOG
+  echo $(date +%s): $1
 }
 fb_logger "Running script: $0"
 
