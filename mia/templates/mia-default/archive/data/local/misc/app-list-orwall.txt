@@ -10,3 +10,4 @@ info.guardianproject.orfox:Fenced
 net.osmand.plus:
 org.fdroid.fdroid:
 org.mariotaku.twidere:
+org.mozilla.firefox:

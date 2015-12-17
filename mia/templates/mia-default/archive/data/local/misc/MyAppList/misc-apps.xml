@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <app-list>
+  <app package="com.eolwral.osmonitor" name="OSMonitor" />
+  <app package="uk.co.ashtonbrsc.android.intentintercept" name="Intent Intercept" />
+  <app package="de.grobox.liberario" name="Transportr" />
+  <app package="cz.eutopia.snooperstopper" name="SnooperStopper" />
+  <app package="org.nick.cryptfs.passwdmanager" name="CryptFS Password" />
   <app package="com.android.keepass" name="KeePassDroid" />
   <app package="com.artifex.mupdfdemo" name="MuPDF" />
   <app package="com.google.android.gms" name="ug UnifiedNlp" />
