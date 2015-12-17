@@ -13,7 +13,7 @@ SIP_APP=com.csipsimple
 BROWSER_APP=com.android.browser
 ORWALL_APP=org.ethack.orwall
 
-MISC_DIR="/sdcard/misc"
+MISC_DIR="/data/local/misc"
 FB_LOG="/data/local/tmp/mia-firstboot2.log"
 
 # Load helper functions.
@@ -120,8 +120,7 @@ am startservice org.torproject.android/org.torproject.android.service.TorService
 am broadcast -a android.intent.action.BOOT_COMPLETED -n org.ethack.orwall/.BootBroadcast
 
 fb_logger "Remove setup directory: ${MISC_DIR}"
-#rm -rf $MISC_DIR
-
+rm -rf $MISC_DIR
 
 # We want this FirstBoot script to run only once.
 fb_logger "Finished running script: $0"

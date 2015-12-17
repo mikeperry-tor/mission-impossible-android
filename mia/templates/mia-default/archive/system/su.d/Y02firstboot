@@ -46,7 +46,7 @@ if [ -e $FB_SCRIPT ]; then
       ${FB_SCRIPT} &>> $FB_LOG
 
       fb_logger "Removing firstboot script: ${FB_SCRIPT}"
-      #$RM ${FB_SCRIPT}
+      $RM ${FB_SCRIPT}
 
       # Exit the loop.
       break

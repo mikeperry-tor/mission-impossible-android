@@ -42,34 +42,39 @@ set_perm(0, 0, 0755, "/data/local/mia-firstboot.sh");
 
 ui_print("| 70%  Installing App List      |");
 set_progress(0.7);
-package_extract_dir("sdcard/misc/MyAppList", "/sdcard/MyAppList");
+package_extract_dir("data/local/misc/MyAppList", "/sdcard/MyAppList");
 # Linux UIDs: 0(root), 1028(sdcard_r)
 set_perm_recursive(1023, 1023, 0770, 0660, "/sdcard/MyAppList");
 
 ui_print("| 75%  Copying misc boot files  |");
 set_progress(0.75);
-package_extract_dir("sdcard/misc", "/sdcard/misc");
-set_perm_recursive(1023, 1023, 0770, 0660, "/sdcard/misc");
+package_extract_dir("data/local/misc", "/data/local/misc");
+set_perm_recursive(0, 0, 0770, 0660, "/data/local/misc");
 
 ui_print("| 80%  Disable CM Setup Wizard  |");
 set_progress(0.8);
 delete("/system/priv-app/CMAccount.apk");
 
-ui_print("| 85%  Removing stock browser   |");
+ui_print("| 85%  Removing stock apps      |");
 set_progress(0.85);
-delete("/system/app/Browser.apk");
+#delete("/system/app/Browser.apk");
 delete("/system/app/Email.apk");
 delete("/system/app/Exchange2.apk");
 delete("/system/app/DownloadProviderUi.apk");
 delete("/system/priv-app/DownloadProvider.apk");
 delete("/system/app/Term.apk");
 
-ui_print("| 85%  Installing SuperSU       |");
+ui_print("| 90%  Installing SuperSU       |");
+
+# This is done as per the recommendations here: http://su.chainfire.eu/#embed
+# It will also be more user-friendly if we do not require the mia install
+# process, and allow people to just flash a single update zip rather than
+# several.
 package_extract_dir("supersu", "/tmp/supersu");
 run_program("/sbin/busybox", "unzip", "/tmp/supersu/supersu.zip", "META-INF/com/google/android/*", "-d", "/tmp/supersu");
 run_program("/sbin/busybox", "sh", "/tmp/supersu/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/supersu/supersu.zip");
 
-ui_print("| 90%  Unmounting filesystems   |");
+ui_print("| 95%  Unmounting filesystems   |");
 set_progress(0.9);
 run_program("/sbin/busybox", "umount", "/system");
 run_program("/sbin/busybox", "umount", "/cache");
