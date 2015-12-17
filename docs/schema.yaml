@@ -57,4 +57,4 @@ app_direct_download:
   hash: str()
   hash_type: str(required=False)
   url: str()
-  app_type: enum('system', 'privileged', 'user', required=False)
+  app_type: enum('system', 'privileged', 'user', 'supersu', required=False)

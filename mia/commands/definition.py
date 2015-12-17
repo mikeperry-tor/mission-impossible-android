@@ -339,8 +339,9 @@ class Definition(object):
         definition_path = MiaHandler.get_definition_path()
 
         for apk_info in lock_data:
-            print(' - downloading: %s' % apk_info['package_url'])
             relative_path = settings['app_types'][apk_info['type']]
+            print(' - downloading: %s to %s (type %s)' %
+                  (apk_info['package_url'], relative_path, apk_info['type']))
             download_path = os.path.join(definition_path, 'archive', relative_path)
             if not os.path.isdir(download_path):
                 os.makedirs(download_path, mode=0o755)

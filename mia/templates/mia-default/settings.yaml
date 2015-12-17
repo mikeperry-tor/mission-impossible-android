@@ -19,6 +19,7 @@ app_types:
   system: system/app
   privileged: system/priv-app
   user: data/app
+  supersu: supersu
 
 # A list of repositories for the F-Droid application.
 repositories:
@@ -43,10 +44,16 @@ repositories:
 
 # Apps from the main F-Droid repository.
 apps:
+  - id: supersu
+    name: supersu.zip
+    hash: d44cdd09e99561132b2a4cd19d707f7126722a9c051dc23f065a948c7248dc4e
+    hash_type: sha256
+    url: https://download.chainfire.eu/696/SuperSU/UPDATE-SuperSU-v2.46.zip?retrieve_file=1
+    type: supersu
   - id: org.fdroid.fdroid
     versioncode: 96150
     hash: 481f2f1ec4e0fd21279018d5fa6b31086fc4cdd4bb88c2a3d074a0db1df8d24c
-    app_type: privileged
+    type: privileged
   - id: be.uhasselt.privacypolice
   - id: com.artifex.mupdfdemo
   - id: com.csipsimple
@@ -73,4 +80,3 @@ apps:
   - id: org.videolan.vlc
   - id: org.witness.informacam.app
     repository: guardian
-

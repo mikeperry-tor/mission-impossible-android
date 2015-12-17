@@ -65,6 +65,11 @@ delete("/system/app/DownloadProviderUi.apk");
 delete("/system/priv-app/DownloadProvider.apk");
 delete("/system/app/Term.apk");
 
+ui_print("| 85%  Installing SuperSU       |");
+package_extract_dir("supersu", "/tmp/supersu");
+run_program("/sbin/busybox", "unzip", "/tmp/supersu/supersu.zip", "META-INF/com/google/android/*", "-d", "/tmp/supersu");
+run_program("/sbin/busybox", "sh", "/tmp/supersu/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/supersu/supersu.zip");
+
 ui_print("| 90%  Unmounting filesystems   |");
 set_progress(0.9);
 run_program("/sbin/busybox", "umount", "/system");
